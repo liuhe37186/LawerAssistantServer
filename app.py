@@ -50,7 +50,7 @@ def get_task(task_id):
 
 @app.route('/api/v1.0/app/update', methods=['POST', 'GET'])
 def check_update():
-    data = {'content': 'update', 'url': "http://www.baidu.com"}
+    data = {'content': 'update', 'url': "http://www.baidu.com", "isForce": "1"}
 
     if request.method == 'POST':
         code = request.form.get("version_code")
@@ -58,7 +58,7 @@ def check_update():
     else:
         code = request.args.get('version_code')
         print(code)
-    if code <= versionCode:
+    if code >= versionCode:
         res.data = ""
     else:
         res.data = data
@@ -66,4 +66,4 @@ def check_update():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80)
