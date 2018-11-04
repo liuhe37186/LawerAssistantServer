@@ -50,7 +50,7 @@ def get_task(task_id):
 
 @app.route('/api/v1.0/app/update', methods=['POST', 'GET'])
 def check_update():
-    data = {'content': '解决已知bug\n优化用户体验', 'url': "http://www.baidu.com", "isForce": "1"}
+    data = {'content': '解决已知bug\n优化用户体验', 'url': "http://18.220.87.46:8989/home/ec2-user/app/app-release.apk", "isForce": "1"}
 
     if request.method == 'POST':
         code = request.form.get("version_code")
